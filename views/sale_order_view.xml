@@ -1,0 +1,8 @@
+<odoo>
+    <data>
+        <!-- Change the name being displayed in the customer selection field 
+        to the display_name which most often than not should be the commercial
+        name -->
+        
+    </data>
+</odoo>

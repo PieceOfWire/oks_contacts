@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+      <!-- Add commercial name into view and replace the huge name displayed
+      from its name to its display_name -->
+      <record id="res_partner_form_view_inherit_base" model="ir.ui.view">
+        <field name="name">oks.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//field[@name='name']" position="replace">
+            <field name="display_name"/>
+          </xpath>
+
+          <xpath expr="//group[1]" position="before">
+            <group>
+                  <field name="x_commercial_name" attrs="{'invisible':[('is_company', '=', False)]}"/>
+                  <!-- Hacky way to change the name of the label based. If the contact is not 
+                  a company it can't have a 'razon social' -->
+                  <field string="Razón social" name="name" attrs="{'invisible':[('is_company', '=', False)]}"/>
+                  <field string="Nombre" name="name" attrs="{'invisible':[('is_company', '=', True)]}"/>
+            </group>
+          </xpath>
+        </field>
+      </record>
+  </data>
+</odoo>

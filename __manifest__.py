@@ -20,12 +20,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'contacts'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
-        'views/res_partner_views.xml',
+        'views/res_partner_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
