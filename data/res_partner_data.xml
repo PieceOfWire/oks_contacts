@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="customer_demo" model="res.partner">
+            <field name="name">COMERCIAL KIWI S.A. DE C.V.</field>
+            <field name="x_commercial_name">Kiwi Azul</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer" eval="True"/>
+            <field name="supplier" eval="False"/>
+        </record>
+
+        <record id="supplier_demo" model="res.partner">
+            <field name="name">MANGOS MAGICOS S.A. DE C.V.</field>
+            <field name="x_commercial_name">Magingos</field>
+            <field name="is_company" eval="True"/>
+            <field name="customer" eval="False"/>
+            <field name="supplier" eval="True"/>
+        </record>
+    </data>
+</odoo>

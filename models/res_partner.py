@@ -25,7 +25,7 @@ class OksContact(models.Model):
     def name_get(self):
         res = []
         for partner in self:
-            # Only change. Originally it was: name = partner.name
+            # Only change. Originally it was: name = partner.name or ''
             if self._context.get('legal_name'):
                 name = partner.name or ''
             else:
