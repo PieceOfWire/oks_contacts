@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <!-- Adds context to partner_id fields in the account module so the 
+        legal/original odoo name is displayed -->
+        
+        <record id="invoice_tree_inherit_account" model="ir.ui.view">
+            <field name="name">oks.account.invoice.tree</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="attributes">   
+                    <attribute name="context">{'legal_name': 1}</attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="invoice_form_inherit_account" model="ir.ui.view">
+            <field name="name">oks.account.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="attributes">   
+                    <attribute name="context">
+                        {'legal_name': 1, 'search_default_customer': 1, 'show_address': 1, 'default_company_type': 'company'}
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="invoice_supplier_form_inherit_account" model="ir.ui.view">
+            <field name="name">oks.account.invoice.supplier.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="attributes">   
+                    <attribute name="context">
+                        {'legal_name': 1, 'default_is_company': True, 'default_supplier': payment_type == 'outbound', 'default_customer': payment_type == 'inbound'}
+                    </attribute>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

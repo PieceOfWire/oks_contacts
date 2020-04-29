@@ -26,7 +26,11 @@ class OksContact(models.Model):
         res = []
         for partner in self:
             # Only change. Originally it was: name = partner.name
-            name = partner.display_name or ''
+            if self._context.get('legal_name'):
+                name = partner.name or ''
+            else:
+                name = partner.display_name or ''
+            # Only change 
 
             if partner.company_name or partner.parent_id:
                 if not name and partner.type in ['invoice', 'delivery', 'other']:
