@@ -22,7 +22,7 @@
     # any module necessary for this one to work correctly
     # cdfi_invoice is used for a specific scenario. If you don't use the module
     # just leave the lines commented
-    'depends': ['base', 'contacts', 'account_invoicing', 'sale_management', 'purchase', 'l10n_mx'
+    'depends': ['base', 'contacts', 'account_invoicing', 'l10n_mx'
     # 'cdfi_invoice'
     ],
 
@@ -31,6 +31,7 @@
         # 'security/ir.model.access.csv',
         'views/res_partner_view.xml',
         'views/account_invoice_view.xml',
+        'views/account_payment_view.xml',
         'data/res_partner_data.xml',
         # 'views/cdfi_view.xml',
     ],
